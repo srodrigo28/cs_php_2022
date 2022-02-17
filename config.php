@@ -12,7 +12,7 @@ $servidor = 'mysql465.umbler.com:41890';
 $usuario = 'admin_cs';
 $senha = '2020Admin';
 $banco = 'cs';
-$porta = 41890;
+//$porta = 41890;
 
 /***
 define('HOST', 'localhost');

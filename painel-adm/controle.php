@@ -142,12 +142,6 @@ require_once($pagina."/campos.php");
 					<button type="submit" id="atualiza" class="btn btn-primary" id="salvar">Salvar</button>
 					<button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btn-fechar">Fechar</button>
 				</div>
-				<script>
-					// document.getElementById("salvar").addEventListener("click", function(event){
-					// 	event.preventDefault()
-					// 	window.location.reload()
-					// })
-				</script>
 			</form>
 		</div>
 	</div>
