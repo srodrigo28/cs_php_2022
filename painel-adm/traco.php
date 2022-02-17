@@ -8,6 +8,7 @@ require_once($pagina."/campos.php");
 ?>
 
 <div class="col-md-12 my-3">
+	<h1 class="text-center">Traço</h1>
 	<a href="#" onclick="inserir()" type="button" class="btn btn-dark btn-sm">Registro</a>
 </div>
 
