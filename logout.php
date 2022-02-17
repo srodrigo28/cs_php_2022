@@ -1,6 +1,6 @@
 <?php 
 @session_start();
-@session_destroy();
+session_destroy();
 
-echo "<script>window.location='index.php'</script>";
+    echo "<script>window.location='index.php'</script>";
  ?>

@@ -15,19 +15,64 @@ if( $total_horimetro > 0 ){
 // Calculo Horimetro
 
 echo <<<HTML
+
+<style>
+	/* body{
+		background-color: red;
+	}
+	.table{
+		display: block;
+	}
+	.tbody{
+		width: 20% !important;
+		background-color: yellow !important;
+	}
+	.ocutar{
+		display: none;
+		/* visibility: hidden; */
+	}
+	
+		@media only screen and (min-width: 414px) { // Iphone 8plus
+			table {
+				background-color: red !important;
+			}
+		}
+		@media only screen and (max-width: 400px) { // Iphone 13 pro max
+			table {
+				background-color: blue !important;
+			}
+		}
+		@media only screen and (max-width: 390px) { // Iphone 13 pro
+			table {
+				background-color: yellow !important;
+			}
+		}
+		@media only screen and (max-width: 375px) {  // 11 Pro x Iphone 8
+			table {
+				background-color: pink !important;
+			}
+		}
+		@media only screen and (max-width: 320px) {  // SE
+			table {
+				background-color: green !important;
+			}
+		} */
+</style>
+
 <table id="example" class="table table-striped table-light table-hover my-4">
 <thead>
 <tr>
 	<th>Data</th>
-	<th>Horimetro Dia</th>
-	<th>Diesel</th>
-	<th>Óleo</th>
+	<th>Horimetro</th>
+	<th class="ocutar">Diesel</th>
+	<th class="ocutar">Óleo</th>
 	<th>Produção</th>
-	<th>Observações</th>
+	<th class="ocutar">Observações</th>
 	<th>Ações</th>
 </tr>
 </thead>
 <tbody>
+
 HTML;
 
 
@@ -47,12 +92,12 @@ for($i=0; $i < @count($res); $i++){
 		$data = date('d-m-Y', strtotime ($cp6));
 		
 echo <<<HTML
-	<tr>	
+	<tr class="tbody">	
 		<td>{$data}</td>
 		<td>{$cp1}</td>
-		<td>{$cp2}</td>
-		<td>{$cp3}</td>
-		<td>{$cp4}</td>
+		<td class="ocutar">{$cp2}</td>
+		<td class="ocutar">{$cp3}</td>
+		<td class="ocutar">{$cp4}</td>
 		<td>{$cp5}</td>
 	<td>
 	<a href="#" onclick="editar('{$id}', '{$cp1}', '{$cp2}', '{$cp3}', '{$cp4}', '{$cp5}')" title="Editar Registro"><i class="bi bi-pencil-square text-primary"></i> </a>

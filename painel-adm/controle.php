@@ -5,48 +5,75 @@ $pagina = 'controle';
 
 require_once($pagina."/campos.php");
 // Calculo Horimetro
-$query = $pdo->query(" SELECT SUM(ho_inicio) as total FROM controle ");
-$res = $query->fetchAll(PDO::FETCH_ASSOC);
-$total_horimetro = count($res);
+	$query = $pdo->query(" SELECT SUM(ho_inicio) as total FROM controle ");
+	$res = $query->fetchAll(PDO::FETCH_ASSOC);
+	$total_horimetro = count($res);
 
-$total_horimetro = $res[0]['total'];
+	$total_horimetro = $res[0]['total'];
 
-if( $total_horimetro > 0 ){
-	//print_r($total_horimetro);
-	// exit();
-}
+	if( $total_horimetro > 0 ){
+		//print_r($total_horimetro);
+		// exit();
+	}
 // Calculo Horimetro
 
 // Calculo Produção
-$query = $pdo->query(" SELECT SUM(producao) as prod FROM controle ");
-$res = $query->fetchAll(PDO::FETCH_ASSOC);
-$total_prod = count($res);
+	$query = $pdo->query(" SELECT SUM(producao) as prod FROM controle ");
+	$res = $query->fetchAll(PDO::FETCH_ASSOC);
+	$total_prod = count($res);
 
-$total_prod = $res[0]['prod'];
+	$total_prod = $res[0]['prod'];
 
-if( $total_prod > 0 ){
-	//print_r($total_horimetro);
-	// exit();
-}
+	if( $total_prod > 0 ){
+		//print_r($total_horimetro);
+		// exit();
+	}
 // Calculo Produção
 
+// Calculo Diesel
+	$query = $pdo->query(" SELECT SUM(diesel) as diesel_total FROM controle ");
+	$res = $query->fetchAll(PDO::FETCH_ASSOC);
+	$total_dielse = count($res);
+
+	$total_dielse = $res[0]['diesel_total'];
+
+	if( $total_dielse > 0 ){
+		//print_r($total_horimetro);
+		// exit();
+	}
+
+// Calculo Diesel
+
+// Calculo Diesel
+	$query = $pdo->query(" SELECT SUM(oleo) as oleo_total FROM controle ");
+	$res = $query->fetchAll(PDO::FETCH_ASSOC);
+	$total_oleo = count($res);
+
+	$total_oleo = $res[0]['oleo_total'];
+
+	if( $total_oleo > 0 ){
+		//print_r($total_horimetro);
+		// exit();
+	}
+// Calculo Diesel
+
 ?>
-<div class="col-md-12 my-3">
+<div class="col-md-12 my-3"> <!-- Controle do Acumuladores -->
 	<h1 class="text-center">Controle</h1>
 	<h5>Resumo</h5>
-	<a href="#" class="btn btn-primary btn-sm">Total Horimetro: <?= $total_horimetro?></a>
-	<a href="#" class="btn btn-success btn-sm">Total Produção: <?= $total_prod?></a>
-	<a href="#" class="btn btn-primary btn-sm">Total Diesel: <?= $total_prod?></a>
-	<a href="#" class="btn btn-success btn-sm">Total Óleo Queima: <?= $total_prod?></a>
+	<a href="#" class="btn btn-primary btn-sm">Horimetro: <?= $total_horimetro ?></a>
+	<a href="#" class="btn btn-success btn-sm">Produção: <?= $total_prod ?></a>
+	<a href="#" class="btn btn-danger btn-sm">Diesel: <?= $total_dielse ?></a>
+	<a href="#" class="btn btn-warning btn-sm">Óleo Queima: <?= $total_oleo ?></a>
 </div>
 
 <div class="col-md-12 my-3">
 	<a href="#" onclick="inserir()" type="button"  class="btn btn-dark btn-sm">Novo Registro</a>
 </div>
 
-<small>
-	<div class="tabela bg-light" id="listar">
-
+<small> <!-- Tabela -->
+	<div class="tabela bg-light" id="listar" style="background: red">
+	
 	</div>
 </small>
 
@@ -74,7 +101,7 @@ if( $total_prod > 0 ){
 						</div>
 
 						<div class="mb-3 col-4">
-							<label for="exampleFormControlInput1" class="form-label">Fechamento Dia</label>
+							<label for="exampleFormControlInput1" class="form-label">Fechamento</label>
 							<input type="number" class="form-control" name="<?= $campo1 ?>" placeholder="<?= $campo1 ?>" id="<?= $campo1 ?>" required>
 						</div>
 
@@ -154,12 +181,6 @@ if( $total_prod > 0 ){
 	</div>
 </div>
 
-<script>
-    //  function recarregar(){
-    //     //onclick="window.location.reload()";
-    //  }
-    //  //recarregar();
- </script>
-
 <script type="text/javascript">var pag = "<?=$pagina?>"</script>
 <script src="../js/ajax.js"></script>
+
